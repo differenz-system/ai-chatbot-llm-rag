@@ -2,28 +2,25 @@
 
 ## Project Overview
 
-This project demonstrates how to use Amazon Bedrock for embedding and LLM services, along with Amazon S3 for storage, to process PDF documents and create a chat interface that allows users to ask questions about the content of those documents. The application is built using Streamlit for the web interface.
+This project showcases an advanced LLM-powered chatbot that can intelligently process and answer questions about PDF documents. By leveraging state-of-the-art language models and vector embeddings, the chatbot provides an intuitive interface for users to interact with complex document content.
 
 ## Architecture
 ![Setup Diagram](Architecture-diagram/Architecture-chatbot.jpg)
 
-## Amazon Services Used
+## Services Used
 
-### Amazon S3
+### Storage Service (e.g., Amazon S3)
 
-**Purpose:** Used for storing the FAISS index files (`my_faiss.faiss` and `my_faiss.pkl`) which are necessary for retrieving embedded document vectors.
+**Purpose:** Used for storing the vector index files (e.g., `my_faiss.faiss` and `my_faiss.pkl`) which are necessary for retrieving embedded document vectors.
 
-**Service:** `s3_client` from the boto3 library.
+**Current Implementation:** `s3_client` from the boto3 library for Amazon S3.
 
-### Amazon Bedrock
+**Alternatives:** 
+- Google Cloud Storage (`google-cloud-storage` library)
+- Azure Blob Storage (`azure-storage-blob` library)
+- MinIO (`minio` library) for self-hosted option
 
-**Purpose:** Provides embeddings and language models for processing and querying the text.
-
-**Embeddings Model Used:** `amazon.titan-embed-text-v1`
-
-**LLM Model Used:** `amazon.titan-text-lite-v1`
-
-**Service:** `bedrock_client` from the boto3 library.
+**Note:** The storage service can be easily swapped by modifying the relevant client in the code. Ensure to update the configuration and environment variables accordingly.
 
 ## Project Components
 
@@ -107,4 +104,3 @@ By meeting these prerequisites, you'll be prepared to build and deploy the LLM C
     - Enter the question you want to ask about the PDF content.
     - The system will find the relevant answer from the index files using similarity metrics of RetrievalQA langchain.
     - The retrieved part will be sent to the Bedrock runtime to create the answer properly, which will then be displayed.
-
