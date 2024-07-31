@@ -4,6 +4,36 @@
 
 This project showcases an advanced LLM-powered chatbot that can intelligently process and answer questions about PDF documents. By leveraging state-of-the-art language models and vector embeddings, the chatbot provides an intuitive interface for users to interact with complex document content.
 
+## Alternative Services
+
+The following are some alternative services that can be used for each component:
+
+- **Storage:**
+  - Amazon S3
+  - Google Cloud Storage
+  - Azure Blob Storage
+  - MinIO (self-hosted)
+
+- **Embedding:**
+  - OpenAI Embeddings
+  - Hugging Face Sentence Transformers
+  - TensorFlow Embeddings
+  - FastText
+
+- **Language Models:**
+  - OpenAI GPT models
+  - Hugging Face Transformers
+  - Google PaLM
+  - Meta LLaMA
+
+- **Vector Databases:**
+  - FAISS
+  - Pinecone
+  - Weaviate
+  - Qdrant
+
+**Note:** When substituting services, ensure to update the relevant client libraries, configurations, and environment variables in the code. Because, this example provides just the example using AWS Berock-Runtime as a service.
+
 ## Architecture
 ![Setup Diagram](Architecture-diagram/Architecture-chatbot.jpg)
 
